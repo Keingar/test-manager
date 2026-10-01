@@ -22,3 +22,9 @@ contextBridge.exposeInMainWorld('ipcRenderer', {
   // You can expose other APTs you need here.
   // ...
 })
+
+// --------- Expose the C++ adapter API ---------
+contextBridge.exposeInMainWorld('testManager', {
+  discoverCppTests: (executablePath: string) => ipcRenderer.invoke('cpp:discover-tests', executablePath),
+  runCppTest: (executablePath: string, testName: string) => ipcRenderer.invoke('cpp:run-test', executablePath, testName),
+})

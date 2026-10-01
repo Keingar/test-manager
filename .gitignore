@@ -11,11 +11,14 @@ node_modules/
 dist/
 dist-ssr/
 dist-electron/
+release/
 *.local
+*.tsbuildinfo
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
+.vs/
 .idea
 .DS_Store
 *.suo
@@ -23,3 +26,4 @@ dist-electron/
 *.njsproj
 *.sln
 *.sw?
+test-manager.code-workspace

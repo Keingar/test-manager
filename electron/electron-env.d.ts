@@ -24,4 +24,15 @@ declare namespace NodeJS {
 // Used in Renderer process, expose in `preload.ts`
 interface Window {
   ipcRenderer: import('electron').IpcRenderer
+  testManager: {
+    discoverCppTests: (executablePath: string) => Promise<string[]>
+    runCppTest: (executablePath: string, testName: string) => Promise<{
+      startedAt: string
+      duration: number
+      status: 'passed' | 'failed'
+      message: string
+      expected?: string
+      actual?: string
+    }>
+  }
 }
